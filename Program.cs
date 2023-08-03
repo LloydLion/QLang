@@ -1,22 +1,20 @@
 ﻿
 using QLang.Tokenization;
+using System.Text;
 
 var rawText =
 """
 {{
 	print "Hello world"
-
+	
 	}}
 	print{ "Again {hello world"
 
 """;
 
-var parsers = TokenTypes.All.Select(s => new TokenParser(s)).ToArray();
-ITokenizer tokenizer = new Tokenizer(parsers);
+var parser = new TokenParser(TokenTypes.All);
+ITokenizer tokenizer = new Tokenizer(parser);
 
 var tokenSequence = tokenizer.Tokenize(rawText);
 
-foreach (var token in tokenSequence)
-{
-	Console.WriteLine(token);
-}
+tokenSequence.GetHashCode();

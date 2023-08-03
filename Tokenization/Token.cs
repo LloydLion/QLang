@@ -16,7 +16,7 @@ internal readonly record struct Token(TokenType Type, string OriginalText, ReadO
 	}
 
 
-	public readonly record struct TextPosition(int Line, int Character)
+	public readonly record struct TextPosition(int Line, int Character, int AbsoluteIndex)
 	{
 		public override string? ToString()
 		{
